@@ -192,6 +192,66 @@ button {
   border-color: var(--border-bright);
 }
 
+#keyboardContainer {
+  width: 100%;
+  min-height: 300px;
+}
+
+/* SVG Keyboard (when loaded from keyboard.svg) */
+#keyboardContainer svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+#keyboardContainer .key-rect {
+  fill: #1a2332;
+  stroke: rgba(255,255,255,0.15);
+  stroke-width: 1.5;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.6)) drop-shadow(0 1px 0 rgba(255,255,255,0.1));
+  transition: fill 0.2s, stroke 0.2s, transform 0.2s, filter 0.2s;
+}
+
+#keyboardContainer .key {
+  cursor: pointer;
+  outline: none;
+}
+
+#keyboardContainer .key:hover .key-rect,
+#keyboardContainer .key:focus .key-rect {
+  fill: #1f2a3d;
+  stroke: var(--border-bright);
+  transform: translateY(-1px);
+  filter: drop-shadow(0 3px 6px rgba(0,0,0,0.7)) drop-shadow(0 1px 0 rgba(255,255,255,0.15));
+}
+
+#keyboardContainer .key.active .key-rect {
+  fill: var(--accent);
+  stroke: #00ffff;
+  transform: translateY(-1px);
+  filter: drop-shadow(0 0 12px var(--glow)) drop-shadow(0 3px 6px rgba(0,0,0,0.8)) drop-shadow(0 1px 0 rgba(255,255,255,0.3));
+}
+
+#keyboardContainer .key.mod .key-rect {
+  fill: #1f2a3d;
+  stroke: var(--border-bright);
+}
+
+#keyboardContainer .key-label {
+  fill: var(--text);
+  font-size: 11px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 600;
+  pointer-events: none;
+  user-select: none;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.8));
+}
+
+#keyboardContainer .key.active .key-label {
+  fill: #000;
+  font-weight: 700;
+}
+
 /* Master keyboard grid */
 .keyboard-grid {
   display: grid;
